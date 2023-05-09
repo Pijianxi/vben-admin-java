@@ -25,7 +25,7 @@
     <select id="selectUserPermissionListMap" resultType="map">
         select p.id, p.url as routePath, p.`name` as menuName, p.component, p.parent_id as parentMenu, p.`type`, p.sort_order as orderNo,
         p.icon, p.permision_code as permission, p.status, p.is_external_link as isExt, p.is_cache as keepalive, p.is_display as `show`,
-        FROM_UNIXTIME(p.created_at, "%Y-%m-%d") as createTime, p.method, P.current_active_menu as currentActiveMenu
+        FROM_UNIXTIME(p.created_at, "%Y-%m-%d") as createTime, p.method, p.current_active_menu as currentActiveMenu
         from sys_permission as p
         left join sys_role_permission as rp on rp.permission_id = p.id
         left join sys_admin as a on a.role_id = rp.role_id

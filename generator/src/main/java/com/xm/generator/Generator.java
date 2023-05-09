@@ -40,12 +40,12 @@ public class Generator {
 
         String rootPath = System.getProperty("user.dir");
 
-        String projectName = "admin-server";
-        String packageName = "admin";
-        String moduleName = "content";
+        String projectName = "admin-report";
+        String packageName = "mr";
+        String moduleName = "report";
         String superEntityClass = "com.xm.common.entity.BaseEntity";
 
-        List<String> tableNameList = Arrays.asList("con_article_category", "con_article_info");
+        List<String> tableNameList = Arrays.asList("t_data_template", "t_data_template_col","t_report_bnc_adjust");
 
         System.out.println("#########################################################################################");
         System.out.println("项目名(如管理后台，输入admin-server):" + projectName);
@@ -70,16 +70,16 @@ public class Generator {
 
             //String projectName = scanner("项目名(如管理后台，输入admin-server)");
             gc.setOutputDir(rootPath + "/" + projectName + "/src/main/java");
-            gc.setAuthor("xiaomalover <xiaomalover@gmail.com>");
+            gc.setAuthor("pijianxi");
             gc.setOpen(false);
             mpg.setGlobalConfig(gc);
 
             // 数据源配置
             DataSourceConfig dsc = new DataSourceConfig();
-            dsc.setUrl("jdbc:mysql://mysql.xm.me:3306/skeleton?useUnicode=true&useSSL=false&characterEncoding=utf8");
+            dsc.setUrl("jdbc:mysql://localhost:3306/mr?useUnicode=true&useSSL=false&characterEncoding=utf8");
             dsc.setDriverName("com.mysql.cj.jdbc.Driver");
             dsc.setUsername("root");
-            dsc.setPassword("root");
+            dsc.setPassword("123456");
             mpg.setDataSource(dsc);
 
             // 包配置

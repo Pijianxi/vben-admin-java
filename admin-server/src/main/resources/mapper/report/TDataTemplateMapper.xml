@@ -1,0 +1,21 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xm.admin.module.report.mapper.TDataTemplateMapper">
+
+
+
+    <select id="selectTemplateList" resultType="map">
+        select id, name , subject_name as subjectName
+        from t_data_template
+        where 1=1
+
+        <if test="templateInfo.name != null and templateInfo.name != ''">
+            AND name like '%${templateInfo.name}%'
+        </if>
+
+        <if test="templateInfo.subjectCode != null and templateInfo.subjectCode != ''">
+            AND subject_code = #{templateInfo.subjectCode}
+        </if>
+
+        order by id asc
+    </select>
+</mapper>

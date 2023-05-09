@@ -7,9 +7,9 @@ spring:
   application:
     name: cloud-server
   datasource:
-      url: jdbc:mysql://mysql.xm.me:3306/skeleton?useUnicode=true&characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      url: jdbc:mysql://localhost:3306/mr?useUnicode=true&characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
       username: root
-      password: root
+      password: 123456
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: com.mysql.jdbc.Driver
       logSlowSql: true
@@ -30,11 +30,12 @@ spring:
 
   # Redis
   redis:
-    host: redis.xm.me
+    host: 10.15.216.131
     #password: xiaomalover
     # 数据库索引 默认0
     database: 0
     port: 6379
+    password: redis@password
     timeout: 3000s
     #password: 69F0ef5dd1d62ab48b13834286403A
 
@@ -47,7 +48,7 @@ mybatis-plus:
   typeEnumsPackage: com.xm.api.*.*.entity
   global-config:
     #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
-    id-type: 2
+    id-type: 0
     #字段策略 0:"忽略判断",1:"非 NULL 判断",2:"非空判断"
     field-strategy: 2
     #驼峰下划线转换
