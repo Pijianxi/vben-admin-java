@@ -1,4 +1,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xm.admin.module.report.mapper.TDataTemplateColMapper">
 
+
+    <select id="selectListByTemplateId" resultType="map">
+
+
+        select
+             id , template_id as templateId , template_code as templateCode,
+            col_code as colCode, col_name as colName,code_type as colCode,code_type_name as codeTypeName,
+            is_condition as isCondition,is_show as isShow,is_not_null as isNotNull,order_no as orderNo
+
+        from  t_data_template_col   where template_id = #{id}
+
+    </select>
 </mapper>

@@ -4,7 +4,7 @@
 
 
     <select id="selectTemplateList" resultType="map">
-        select id, name , subject_name as subjectName
+        select id, name , subject_name as subjectName,code , subject_code as subjectCode
         from t_data_template
         where 1=1
 

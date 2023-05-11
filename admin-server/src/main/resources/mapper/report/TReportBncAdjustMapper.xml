@@ -1,4 +1,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xm.admin.module.report.mapper.TReportBncAdjustMapper">
 
+
+
+    <select id="selectBncAdjustList" resultType="map">
+        select id, year , month , month_txt as monthTxt ,org , org_txt as orgTxt
+        ,subject_code as subjectCode,subject_txt as subjectTxt ,item_code as itemCode,item_txt as itemTxt,
+        channel_code as channelCode,channel_txt as channelTxt,value ,remark1 ,remark2
+        from t_report_bnc_adjust
+        where 1=1
+        <if test="bncAdjust.year != null ">
+            AND year= #{bncAdjust.year}
+        </if>
+        <if test="bncAdjust.month != null ">
+            AND month= #{bncAdjust.month}
+        </if>
+        <if test="bncAdjust.org != null ">
+            AND org= #{bncAdjust.org}
+        </if>
+        <if test="bncAdjust.subjectCode != null and ncAdjust.subjectCode !='' ">
+            AND subject_code= #{bncAdjust.subjectCode}
+        </if>
+        <if test="bncAdjust.itemCode != null and ncAdjust.itemCode !='' ">
+            AND item_code= #{bncAdjust.itemCode}
+        </if>
+
+        <if test="bncAdjust.channelCode != null and ncAdjust.channelCode !='' ">
+            AND channel_code= #{bncAdjust.channelCode}
+        </if>
+
+
+        order by id asc
+    </select>
 </mapper>
